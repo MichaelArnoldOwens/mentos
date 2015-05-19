@@ -81,7 +81,7 @@ router.get('/logged_out', function(req, res){
 });
 
 function ensureAuthenticated(req, res, next) {  
-    if (req.isAuthenticated()) { return next(); }
+    if (req.isAuthenticated() && req.user['_json'].domain == "tradecrafted.com") { return next(); }
     res.redirect('/auth/google');
 }
 
