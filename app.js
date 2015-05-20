@@ -45,6 +45,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
+  saveUninitialized: true,
   genid: function(req) {
     return uid2(32); // use UUIDs for session IDs
   },
